@@ -1,0 +1,11 @@
+---
+layout: "base.njk"
+title: "Join the Waitlist"
+---
+
+<h1>JOIN THE WAITLIST</h1>
+<p>Add your email and submit the form to join the waitlist.</p>
+<form id="waitlistForm" action="/api/waitlist" method="POST">
+  <input type="email" name="email" placeholder="Enter your email" required="required"/>
+  <button type="submit">Join waitlist</button>
+</form>
