@@ -37,7 +37,7 @@ export default async (req: Request, context: Context) => {
     const store = getStore({ name: "waitlist" });
     await store.setJSON(email, { email, createdAt: new Date().toISOString() });
 
-    // await purgeCache({ tags: ["waitlist"] });
+    await purgeCache({ tags: ["waitlist"] });
     setFeedbackCookie("Successfully joined the waitlist!");
     return redirect();
   } catch (error) {
