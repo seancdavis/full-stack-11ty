@@ -1,6 +1,8 @@
-export default async function feedback(request, context) {
+import type { Context } from "@netlify/edge-functions";
+
+export default async function handler(req: Request, context: Context) {
   const response = await context.next();
-  const feedback = context.cookies.get('feedback');
+  const feedback = context.cookies.get("feedback");
 
   if (!feedback) {
     return response;
@@ -16,10 +18,10 @@ export default async function feedback(request, context) {
     </div>
   `;
 
-  html = html.replace('<body>', '<body>' + feedbackHtml);
+  html = html.replace("<body>", "<body>" + feedbackHtml);
 
   // Clear the feedback cookie
-  context.cookies.delete('feedback');
+  context.cookies.delete("feedback");
 
   return new Response(html, {
     headers: response.headers,
