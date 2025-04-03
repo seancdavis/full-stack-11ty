@@ -9,6 +9,8 @@ export default async function handler(req: Request, context: Context) {
   const waitlistBlobs = await store.list();
   const waitlistEmails = waitlistBlobs.blobs.map((blob) => blob.key);
 
+  response.headers.set("Netlify-Cache-Tag", "waitlist");
+
   // Create an HTML Rewriter instance with a transformer for the feedback element
   const rewriter = new HTMLRewriter().on("current-waitlist", {
     element(element) {

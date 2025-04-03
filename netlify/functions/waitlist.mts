@@ -1,5 +1,5 @@
 import { getStore } from "@netlify/blobs";
-import type { Config, Context } from "@netlify/functions";
+import { purgeCache, type Config, type Context } from "@netlify/functions";
 
 export default async (req: Request, context: Context) => {
   function setFeedbackCookie(value: string) {
@@ -37,6 +37,7 @@ export default async (req: Request, context: Context) => {
     const store = getStore({ name: "waitlist" });
     await store.setJSON(email, { email, createdAt: new Date().toISOString() });
 
+    // await purgeCache({ tags: ["waitlist"] });
     setFeedbackCookie("Successfully joined the waitlist!");
     return redirect();
   } catch (error) {
