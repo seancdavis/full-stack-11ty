@@ -1,6 +1,6 @@
 [build]
   functions = "netlify/functions"
-  publish = "."
+  publish = "_site"
 
 [[edge_functions]]
   path = "/"
