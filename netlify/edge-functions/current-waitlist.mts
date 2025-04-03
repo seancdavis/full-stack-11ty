@@ -10,6 +10,11 @@ export default async function handler(req: Request, context: Context) {
   const waitlistEmails = waitlistBlobs.blobs.map((blob) => blob.key);
 
   response.headers.set("Netlify-Cache-Tag", "waitlist");
+  response.headers.set("Cache-Control", "public, max-age=0, must-revalidate");
+  response.headers.set(
+    "Netlify-CDN-Cache-Control",
+    "public, max-age=300, stale-while-revalidate=31536000, durable"
+  );
 
   // Create an HTML Rewriter instance with a transformer for the feedback element
   const rewriter = new HTMLRewriter().on("current-waitlist", {
