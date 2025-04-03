@@ -3,42 +3,36 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Join our exclusive waitlist to be the first to know when we launch. Sign up now to secure your spot.">
+    <meta
+      name="description"
+      content="Join our exclusive waitlist to be the first to know when we launch. Sign up now to secure your spot."
+    />
     <title>Join the Waitlist - Be the First to Know</title>
-    <link rel="icon" type="image/png" href="https://www.11ty.dev/img/favicon.png">
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <link
+      rel="icon"
+      type="image/png"
+      href="https://www.11ty.dev/img/favicon.png"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
     <main>
+      <feedback></feedback>
       <h1>JOIN THE WAITLIST</h1>
       <p>Add your email and submit the form to join the waitlist.</p>
-      <form id="waitlistForm">
-        <input type="email" name="email" placeholder="Enter your email" required>
+      <form id="waitlistForm" action="/api/waitlist" method="POST">
+        <input
+          type="email"
+          name="email"
+          placeholder="Enter your email"
+          required
+        />
         <button type="submit">Join waitlist</button>
       </form>
     </main>
-    <script>
-      document.getElementById('waitlistForm').addEventListener('submit', async (e) => {
-        e.preventDefault();
-        const email = new FormData(e.target).get('email');
-        
-        try {
-          const response = await fetch('/api/waitlist', {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({ email }),
-          });
-          
-          if (response.ok) {
-            e.target.reset();
-          }
-        } catch (error) {
-          console.error('Error:', error);
-        }
-      });
-    </script>
   </body>
 </html>

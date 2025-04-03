@@ -3,5 +3,5 @@
   publish = "."
 
 [[edge_functions]]
-  path = "/*"
+  path = "/"
   function = "feedback"
