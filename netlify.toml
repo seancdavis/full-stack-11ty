@@ -1,0 +1,7 @@
+[build]
+  functions = "netlify/functions"
+  publish = "."
+
+[[edge_functions]]
+  path = "/*"
+  function = "feedback"

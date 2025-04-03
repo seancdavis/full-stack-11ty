@@ -1,0 +1,96 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Playfair Display", Georgia, serif;
+  background: white;
+  color: black;
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+}
+
+.feedback {
+  position: fixed;
+  top: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  background: black;
+  color: white;
+  padding: 1rem 2rem;
+  border-radius: 4px;
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-size: 1rem;
+  animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translate(-50%, -100%);
+    opacity: 0;
+  }
+  to {
+    transform: translate(-50%, 0);
+    opacity: 1;
+  }
+}
+
+main {
+  width: 90%;
+  max-width: 600px;
+  text-align: center;
+  display: grid;
+  gap: 2rem;
+}
+
+h1 {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-size: clamp(4rem, 12vw, 8rem);
+  line-height: 1;
+  font-weight: 900;
+  letter-spacing: -0.02em;
+}
+
+p {
+  font-size: 1.125rem;
+  opacity: 0.8;
+}
+
+form {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
+
+input {
+  flex: 1;
+  padding: 1rem;
+  border: 1px solid black;
+  font-size: 1rem;
+  background: white;
+  font-family: inherit;
+}
+
+input:focus {
+  outline: none;
+  border-color: black;
+}
+
+button {
+  padding: 1rem 2rem;
+  background: black;
+  color: white;
+  border: none;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: opacity 0.2s;
+  font-family: inherit;
+}
+
+button:hover {
+  opacity: 0.9;
+}
