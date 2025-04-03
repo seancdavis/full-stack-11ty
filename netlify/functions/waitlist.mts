@@ -26,7 +26,8 @@ export default async (req: Request, context: Context) => {
   }
 
   try {
-    const { email } = await req.json();
+    const formData = await req.formData();
+    const email = formData.get("email") as string | null;
 
     if (!email) {
       setFeedbackCookie("Email is required");
@@ -40,6 +41,7 @@ export default async (req: Request, context: Context) => {
     return redirect();
   } catch (error) {
     setFeedbackCookie("Failed to process request");
+    console.error(error);
     return redirect();
   }
 };
