@@ -1,5 +1,5 @@
 import { HTMLRewriter } from "https://ghuc.cc/worker-tools/html-rewriter/index.ts";
-import type { Context } from "@netlify/edge-functions";
+import type { Config, Context } from "@netlify/edge-functions";
 
 export default async function handler(req: Request, context: Context) {
   const response = await context.next();
@@ -28,3 +28,7 @@ export default async function handler(req: Request, context: Context) {
   // Apply the transformation and return the modified response
   return rewriter.transform(response);
 }
+
+export const config: Config = {
+  path: "/",
+};

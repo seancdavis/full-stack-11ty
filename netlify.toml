@@ -1,7 +1,3 @@
 [build]
   functions = "netlify/functions"
   publish = "_site"
-
-[[edge_functions]]
-  path = "/"
-  function = "feedback"
