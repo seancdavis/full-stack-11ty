@@ -1,14 +1,14 @@
 {
   "name": "waitlist-page",
+  "type": "module",
   "private": true,
   "version": "1.0.0",
   "scripts": {
-    "start": "http-server . -p 3000 -c-1"
-  },
-  "devDependencies": {
-    "http-server": "^14.1.1"
+    "dev": "eleventy --serve",
+    "build": "eleventy"
   },
   "dependencies": {
+    "@11ty/eleventy": "^3.0.0",
     "@netlify/blobs": "^6.4.2",
     "@netlify/edge-functions": "^2.11.1",
     "@netlify/functions": "^3.0.4"
